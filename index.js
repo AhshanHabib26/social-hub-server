@@ -1,7 +1,6 @@
 const express = require("express");
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const cors = require("cors");
-const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const app = express();
 const port = process.env.PORT || 5000;
@@ -23,7 +22,7 @@ async function socialHub() {
     console.log("DB Connect");
 
     const userPostCollection = client.db("postCollecction").collection("post");
-    const userCommnetCollection = client.db("postCollecction").collection("comment");
+    // const userCommnetCollection = client.db("postCollecction").collection("comment");
 
     app.post("/userPost", async (req, res) => {
       const query = req.body;
@@ -50,49 +49,6 @@ async function socialHub() {
     //   const data = await result.toArray();
     //   res.send(data);
     // });
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   } finally {
   }
